@@ -16,17 +16,10 @@ class UserFormState extends State<UserForm> {
   //const UserForm({super.key});
   // variavel para pegar os dados do formulario
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    final User user = ModalRoute.of(context)!.settings.arguments as User;
-    _loadFormData(user);
-  }
-
   final Map<String, String> _formData = {};
   final _form = GlobalKey<FormState>();
 
-  void _loadFormData(User user) {
+  void _loadFormData(user) {
     if (user != null) {
       _formData['id'] = user.id;
       _formData['nome'] = user.name;
@@ -37,7 +30,10 @@ class UserFormState extends State<UserForm> {
 
   @override
   Widget build(BuildContext context) {
-    // pegar os dados passado como argumento na rota
+    // pegar os dados passado como argumento na rota.
+    final user = ModalRoute.of(context)!.settings.arguments as User?;
+    _loadFormData(user);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Formulario de Usuario'),
