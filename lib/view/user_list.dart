@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../components/user_tile.dart';
+import '../models/user.dart';
 import '../provider/users.dart';
+import '../routes/app_roues.dart';
 
 class UserList extends StatelessWidget {
   const UserList({super.key});
@@ -16,7 +18,9 @@ class UserList extends StatelessWidget {
           title: const Text('Lista de Usuarios'),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).pushNamed(AppRoutes.USER_FROM);
+              },
               icon: const Icon(Icons.add),
               color: const Color.fromARGB(255, 255, 255, 255),
             )

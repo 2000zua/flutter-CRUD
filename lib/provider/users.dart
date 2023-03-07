@@ -30,7 +30,9 @@ class Users with ChangeNotifier {
     if (_items.containsKey(user.id) &&
         user.id != null &&
         user.id.trim().isNotEmpty) {
+        // editar
       _items.update(user.id, (_) => user);
+    
     } else {
       // adicionar
       final id = Random().nextDouble().toString();

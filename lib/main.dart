@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud/provider/users.dart';
+import 'package:flutter_crud/routes/app_roues.dart';
+import 'package:flutter_crud/view/user_form.dart';
 import 'package:flutter_crud/view/user_list.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +25,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             primarySwatch: Colors.blue,
             visualDensity: VisualDensity.adaptivePlatformDensity),
-        home: const UserList(),
+        routes: {
+          AppRoutes.HOME: (_) => const UserList(),
+          AppRoutes.USER_FROM: (_) => UserForm()
+        },
       ),
     );
   }
